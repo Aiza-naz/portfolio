@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Салон красоты ÉLÉGANCE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>ÉLÉGANCE</h1></header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h2>Ваша красота — наша забота</h2>
+        <p>Стиль • Уход • Гармония</p>
+        <a href="#booking" class="btn">Записаться онлайн</a>
+    </div>
+</section>
+
+<section class="services">
+    <h2>Наши Услуги</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <img src="images/haircut.jpg" alt="Стрижка" class="service-img">
+            <h3>Стрижки и укладки</h3>
+            <p>Современные образы для вашей индивидуальности.</p>
+            <span class="price">от 35 €</span>
+            <a href="#booking" class="btn">Записаться</a>
+        </div>
+        <div class="service-card">
+            <img src="images/coloring.jpg" alt="Окрашивание" class="service-img">
+            <h3>Окрашивание волос</h3>
+            <p>Красивые оттенки и бережный уход.</p>
+            <span class="price">от 70 €</span>
+            <a href="#booking" class="btn">Записаться</a>
+        </div>
+        <div class="service-card">
+            <img src="images/manicure.jpg" alt="Маникюр" class="service-img">
+            <h3>Маникюр</h3>
+            <p>Аккуратность в каждой детали.</p>
+            <span class="price">от 25 €</span>
+            <a href="#booking" class="btn">Записаться</a>
+        </div>
+        <div class="service-card">
+            <img src="images/pedicure.jpg" alt="Педикюр" class="service-img">
+            <h3>Педикюр</h3>
+            <p>Забота о ваших кожках и ногтях.</p>
+            <span class="price">от 30 €</span>
+            <a href="#booking" class="btn">Записаться</a>
+        </div>
+        <div class="service-card">
+            <img src="images/brows.jpg" alt="Брови" class="service-img">
+            <h3>Брови и ресницы</h3>
+            <p>Выразительный взгляд каждый день.</p>
+            <span class="price">от 15 €</span>
+            <a href="#booking" class="btn">Записаться</a>
+        </div>
+    </div>
+</section>
+
+<section class="booking" id="booking">
+    <h2>Запись на услугу</h2>
+    <form class="booking-form" id="contactForm" onsubmit="sendForm(event)">
+        <div class="form-group">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" placeholder="Как к вам обращаться?" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Номер телефона</label>
+            <input type="tel" id="phone" name="phone" placeholder="+31..." required>
+        </div>
+        <div class="form-group">
+            <label for="service">Выберите услугу</label>
+            <select id="service" name="service" required>
+                <option value="" disabled selected>Выберите услугу</option>
+                <option value="Стрижка и укладка">Стрижка и укладка (от 35 €)</option>
+                <option value="Окрашивание волос">Окрашивание волос (от 70 €)</option>
+                <option value="Маникюр">Маникюр (от 25 €)</option>
+                <option value="Педикюр">Педикюр (от 30 €)</option>
+                <option value="Брови и ресницы">Брови и ресницы (от 15 €)</option>
+            </select>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">Отправить заявку</button>
+    </form>
+</section>
+
+<div class="modal" id="successModal">
+    <div class="modal-content">
+        <h3>Заявка отправлена!</h3>
+        <p>Мы свяжемся с вами в ближайшее время для подтверждения записи.</p>
+        <button class="btn" onclick="document.getElementById('successModal').style.display='none'">Отлично</button>
+    </div>
+</div>
+
+<a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank" title="Написать в WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+</a>
+
+<footer><p>&copy; 2024 Салон красоты ÉLÉGANCE. Все права защищены.</p></footer>
+
+<script>
+    function sendForm(event) {
+        event.preventDefault();
+
+        var name = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var service = document.getElementById('service').value;
+        var btn = document.getElementById('submitBtn');
+
+        btn.textContent = 'Отправка...';
+
+        // 1. Отправляем данные на Java-сервер
+        fetch('http://localhost:8080/api/booking', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, phone: phone, service: service })
+        })
+            .then(response => response.json()) // Получаем ответ от Java (токен и данные)
+            .then(data => {
+                // 2. Теперь браузер отправляет в Telegram (он использует VPN)
+                const text = encodeURIComponent(`Новая заявка в салон ELEGANCE!\n\n👤 Имя: ${data.name}\n📞 Телефон: ${data.phone}\n💅 Услуга: ${data.service}`);
+                const url = `https://api.telegram.org/bot${data.token}/sendMessage?chat_id=${data.chat_id}&text=${text}`;
+
+                return fetch(url); // Отправляем в Telegram
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('contactForm').reset();
+                    document.getElementById('successModal').style.display = 'flex';
+                } else {
+                    alert('Ошибка Telegram: ' + response.status);
+                }
+            })
+            .catch(error => {
+                alert('Ошибка сети: ' + error);
+            })
+            .finally(() => {
+                btn.textContent = 'Отправить заявку';
+            });
+    }
+</script>
+</body>
+</html>

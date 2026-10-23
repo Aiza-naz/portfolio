@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: "Inter", Georgia, serif; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+button, input, select { font: inherit; }
+
+/* Шапка */
+header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 5%; background-color: #fff; border-bottom: 2px solid #b8860b; position: sticky; top: 0; z-index: 100; }
+header h1 { color: #b8860b; font-family: "Cormorant Garamond", serif; font-size: 24px; font-weight: 600; letter-spacing: 2px; }
+
+/* Главный экран (Баннер) */
+.hero {
+    position: relative;
+    text-align: center;
+    /* Увеличили высоту баннера, чтобы картинка стала "высокой" */
+    padding: 350px 20px;
+    background-image: url('images/main-bg.jpg');
+    /* Возвращаем картинке заполнение по размеру блока */
+    background-size: cover;
+    /* Центрируем картинку, чтобы было видно и лицо, и нижние кружочки */
+    background-position: center;
+    color: #fff;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.15); /* Легкое затемнение, чтобы текст читался */
+    z-index: 1;
+}
+.hero-content { position: relative; z-index: 2; }
+.hero h2 { font-size: 42px; margin-bottom: 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+.hero p { font-size: 20px; margin-bottom: 30px; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+/* Убираем растягивание кнопки на баннере */
+.hero a.btn {
+    width: auto !important;
+    display: inline-block !important;
+    padding: 14px 40px !important;
+    background-color: #b8860b !important; /* Возвращаем золотой цвет */
+    color: #fff !important;
+    border-radius: 5px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+}
+.hero .btn:hover { background-color: #9a6e09; transform: translateY(-2px); }
+
+/* Услуги */
+.services { padding: 60px 5%; max-width: 1400px; margin: 0 auto; }
+.services h2 { text-align: center; margin-bottom: 40px; font-size: 28px; }
+
+/* Сетка для 5 карточек в один ряд */
+.services-grid {
+    display: grid;
+    /* Уменьшили мин. ширину до 180px, чтобы 5 карточек влезли в один ряд */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    align-items: stretch;
+}
+
+.service-card { background: #fff; padding: 20px 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s ease; display: flex; flex-direction: column; }
+.service-card:hover { transform: translateY(-5px); }
+
+.service-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 15px auto; display: block; border: 3px solid #f0e6d2; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.service-card h3 { margin-bottom: 10px; font-size: 18px; min-height: 45px; }
+.service-card p { color: #666; font-size: 13px; margin-bottom: 15px; flex-grow: 1; }
+.price { font-weight: bold; font-size: 18px; color: #b8860b; margin-bottom: 15px; display: block; }
+.btn { display: inline-block; background-color: #333; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; font-size: 13px; transition: background 0.3s ease; width: 100%; }
+.btn:hover { background-color: #b8860b; }
+
+/* Форма */
+.booking { background-color: #fff; padding: 60px 20px; text-align: center; }
+.booking h2 { margin-bottom: 30px; }
+.booking-form { max-width: 500px; margin: 0 auto; text-align: left; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+.form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: #b8860b; }
+.submit-btn { width: 100%; background-color: #b8860b; color: white; padding: 15px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; transition: background 0.3s; }
+.submit-btn:hover { background-color: #9a6e09; }
+
+/* Модальное окно */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; }
+.modal-content { background: #fff; padding: 40px; border-radius: 10px; text-align: center; max-width: 400px; width: 90%; animation: fadeIn 0.3s ease; }
+.modal-content h3 { color: #28a745; margin-bottom: 15px; }
+.modal-content p { margin-bottom: 25px; }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+/* WhatsApp */
+.whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); text-decoration: none; z-index: 999; transition: transform 0.3s; }
+.whatsapp-btn:hover { transform: scale(1.1); }
+
+footer { text-align: center; padding: 20px; background: #333; color: #fff; font-size: 14px; }
+
+/* ===== 3D КНОПКИ ===== */
+
+/* Общий стиль для всех кнопок */
+.btn, .submit-btn {
+    /* Добавляем нижнюю "толщу" и общую тень */
+    box-shadow: 0 6px 0 #7a5a1c, 0 10px 15px rgba(0,0,0,0.2) !important;
+    transition: all 0.1s ease !important;
+    position: relative;
+    top: 0;
+    border: none !important; /* Убираем обычную рамку, чтобы не мешала */
+}
+
+/* Эффект при наведении мышки (кнопка приподнимается) */
+.btn:hover, .submit-btn:hover {
+    box-shadow: 0 8px 0 #7a5a1c, 0 15px 20px rgba(0,0,0,0.3) !important;
+    top: -2px;
+}
+
+/* Эффект при клике (кнопка вдавливается вниз) */
+.btn:active, .submit-btn:active {
+    box-shadow: 0 0px 0 #7a5a1c, 0 5px 10px rgba(0,0,0,0.2) !important;
+    top: 6px; /* Кнопка опускается, имитируя нажатие */
+}
+
+/* Отдельный цвет для кнопок в карточках услуг (они темные) */
+.service-card .btn {
+    box-shadow: 0 6px 0 #1a1a1a, 0 10px 15px rgba(0,0,0,0.2) !important;
+}
+.service-card .btn:hover {
+    box-shadow: 0 8px 0 #1a1a1a, 0 15px 20px rgba(0,0,0,0.3) !important;
+}
+.service-card .btn:active {
+    box-shadow: 0 0px 0 #1a1a1a, 0 5px 10px rgba(0,0,0,0.2) !important;
+}
+
+/* Отдельный цвет для золотой кнопки на баннере и формы */
+.hero .btn, .submit-btn {
+    box-shadow: 0 6px 0 #7a5a1c, 0 10px 15px rgba(0,0,0,0.3) !important;
+}
+.hero .btn:hover, .submit-btn:hover {
+    box-shadow: 0 8px 0 #7a5a1c, 0 15px 20px rgba(0,0,0,0.4) !important;
+}
+.hero .btn:active, .submit-btn:active {
+    box-shadow: 0 0px 0 #7a5a1c, 0 5px 10px rgba(0,0,0,0.2) !important;
+}
+
+/* ===== Стили для кнопки WhatsApp ===== */
+
+.whatsapp-btn {
+    /* Увеличиваем и делаем более заметной */
+    width: 65px !important;
+    height: 65px !important;
+
+    /* Добавляем зеленое свечение и объемную тень */
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4), 0 10px 25px rgba(0,0,0,0.2) !important;
+
+    /* Плавная анимация */
+    transition: all 0.3s ease !important;
+
+    /* Убедимся, что она поверх всего */
+    z-index: 9999 !important;
+}
+
+/* Эффект при наведении (кнопка увеличивается и свечение усиливается) */
+.whatsapp-btn:hover {
+    transform: scale(1.15) translateY(-5px) !important;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.6), 0 15px 35px rgba(0,0,0,0.3) !important;
+}
+
+/* Эффект при клике (кнопка чуть вдавливается) */
+.whatsapp-btn:active {
+    transform: scale(0.95) translateY(0) !important;
+    box-shadow: 0 2px 5px rgba(37, 211, 102, 0.5) !important;
+}
